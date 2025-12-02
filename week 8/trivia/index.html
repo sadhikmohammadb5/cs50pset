@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questi0n
+            function checkcapital(content){
+                const correctPlaceholder=document.getElementById("correct");
+
+                const buttons = document.querySelectorAll("button")
+
+                buttons.forEach(btn => btn.style.background = "");
+
+                if (content.innerText !="Hyderabad"){
+                    content.style.background="red";
+                    correctPlaceholder.innerText="Incorrect";
+                }else{
+                    content.style.background="green";
+                    correctPlaceholder.innerText="correct";
+                }
+           }
+
+         //for response
+         function checksmart(){
+            const correctPlaceholder=document.getElementById("correct");
+            const freeResponseAnswer=document.getElementById("Response");
+
+            if(freeResponseAnswer.value !="nothing"){
+                correctPlaceholder.innerText = "Incorrect";
+                freeResponseAnswer.style.background ="red";
+            }else{
+                correctPlaceholder.innerText="correct";
+                freeResponseAnswer.style.background="green";
+            }
+
+         }
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                 <h3> what is the capital of telengana ?</h3>
+                 <p id="correct"></p>
+                 <button onclick="checkcapital(this)">Hyderabad</button>
+                 <button onclick="checkcapital(this)">Vizag</button>
+                 <button onclick="checkcapital(this)">Amaravathi</button>
+                 <button onclick="checkcapital(this)">Nizambad</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                 <h3>what should a samrt person do?</h3>
+                 <p id ="correct"></p>
+                 <form>
+                    <input type ="text" id ="Response">
+                 </form>
+                 <button onclick="checksmart()">check answer</button>
+            </div>
+        </div>
+    </body>
+</html>
